@@ -978,30 +978,44 @@ footer {
 }
 
 .flashcard-front small {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  padding: 10px 18px;
-  border: 2px solid var(--ink);
-  border-radius: 999px;
-  color: rgba(var(--ink-rgb), 0.55);
-  background: var(--gold);
-  box-shadow:
-    4px 5px 0 var(--ink),
-    0 10px 24px rgba(var(--orange-rgb), 0.2);
+  position: relative;
+  display: inline-block;
+  padding: 2px 3px 10px;
+  color: var(--ink);
   font-family: "Noteworthy", "Chalkboard SE", "Segoe Print", cursive;
   font-size: clamp(16px, 1.7vw, 21px);
   font-weight: 700;
-  line-height: 1;
-  transform: rotate(-2deg);
-  animation: flashcard-prompt-pulse 2.2s ease-in-out infinite;
+  line-height: 1.15;
+  transform: rotate(-1deg);
 }
 
 .flashcard-front small::before {
-  content: "✦";
-  color: var(--ink);
-  font-family: inherit;
-  font-size: 0.85em;
+  content: "✎";
+  position: absolute;
+  bottom: -12px;
+  left: -3px;
+  z-index: 2;
+  color: #247f99;
+  font-family: Georgia, serif;
+  font-size: 20px;
+  line-height: 1;
+  transform: rotate(-12deg);
+  animation: flashcard-pencil-trace 2.6s ease-in-out infinite;
+}
+
+.flashcard-front small::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  bottom: 1px;
+  left: 0;
+  height: 4px;
+  border-radius: 60% 45% 55% 40%;
+  background: linear-gradient(90deg, #1d6f87, #35bdd2 48%, #17677f);
+  clip-path: polygon(0 25%, 14% 4%, 30% 30%, 48% 8%, 66% 34%, 82% 10%, 100% 28%, 100% 80%, 84% 64%, 67% 90%, 48% 66%, 30% 92%, 14% 67%, 0 86%);
+  transform: scaleX(0);
+  transform-origin: left center;
+  animation: flashcard-underline-draw 2.6s ease-in-out infinite;
 }
 
 .flashcard-back {
@@ -3466,14 +3480,36 @@ footer p {
   box-shadow: none;
 }
 
-@keyframes flashcard-prompt-pulse {
-  0%, 100% {
-    transform: rotate(-2deg) translateY(0) scale(1);
-    box-shadow: 4px 5px 0 var(--ink), 0 10px 24px rgba(var(--orange-rgb), 0.2);
+@keyframes flashcard-underline-draw {
+  0%, 12% {
+    opacity: 0.35;
+    transform: scaleX(0);
   }
-  50% {
-    transform: rotate(1deg) translateY(-4px) scale(1.04);
-    box-shadow: 5px 7px 0 var(--ink), 0 15px 30px rgba(var(--orange-rgb), 0.34);
+  42%, 78% {
+    opacity: 1;
+    transform: scaleX(1);
+  }
+  100% {
+    opacity: 0;
+    transform: scaleX(1);
+  }
+}
+
+@keyframes flashcard-pencil-trace {
+  0%, 12% {
+    left: -3px;
+    opacity: 0;
+  }
+  18% {
+    opacity: 1;
+  }
+  42%, 78% {
+    left: calc(100% - 16px);
+    opacity: 1;
+  }
+  100% {
+    left: calc(100% - 16px);
+    opacity: 0;
   }
 }
 
