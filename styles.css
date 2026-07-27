@@ -857,6 +857,24 @@ footer {
   z-index: 3;
 }
 
+.stack-cards::before {
+  content: "";
+  position: absolute;
+  top: 36px;
+  left: -38px;
+  z-index: 80;
+  width: 88px;
+  height: 102px;
+  border: 11px solid #63329a;
+  border-right-color: transparent;
+  border-radius: 52% 42% 45% 55%;
+  box-shadow:
+    inset 3px 2px 0 rgba(255, 255, 255, 0.34),
+    0 7px 12px rgba(var(--ink-rgb), 0.24);
+  transform: rotate(10deg);
+  pointer-events: none;
+}
+
 .stack-cards.is-pinned {
   position: fixed;
   top: calc(50vh - 210px);
@@ -918,9 +936,13 @@ footer {
 .stack-cards__item .inner {
   position: relative;
   padding: 48px clamp(24px, 6vw, 56px);
-  border-radius: 18px;
-  box-shadow: 0 16px 45px rgba(var(--ink-rgb), 0.08);
-  border: 1px solid rgba(var(--ink-rgb), 0.05);
+  border: 1px solid rgba(var(--ink-rgb), 0.22);
+  border-radius: 12px;
+  box-shadow:
+    0 5px 0 rgba(var(--ink-rgb), 0.18),
+    7px 12px 18px rgba(var(--ink-rgb), 0.22),
+    inset 0 1px 0 rgba(255, 255, 255, 0.42),
+    inset 0 -4px 8px rgba(var(--ink-rgb), 0.08);
   height: 100%;
   display: flex;
   flex-direction: column;
@@ -928,20 +950,44 @@ footer {
   overflow: hidden;
 }
 
-/* Soft, curated warm colors for sticky notes */
+.stack-cards__item .inner::before {
+  content: "";
+  position: absolute;
+  top: 57px;
+  left: 28px;
+  z-index: 3;
+  width: 22px;
+  height: 22px;
+  border: 3px solid rgba(var(--ink-rgb), 0.42);
+  border-radius: 50%;
+  background:
+    radial-gradient(circle at 42% 38%, rgba(255, 255, 255, 0.35), transparent 24%),
+    #334d58;
+  box-shadow:
+    inset 0 3px 5px rgba(0, 0, 0, 0.28),
+    0 1px 0 rgba(255, 255, 255, 0.42);
+}
+
+/* Thick, tactile flashcard colors inspired by a real ring-bound study deck. */
 .stack-cards__item:nth-child(3) .inner {
-  background: #fffcf0; /* Light yellow sticky note */
-  border-left: 6px solid var(--orange);
+  background:
+    linear-gradient(112deg, rgba(255, 255, 255, 0.24), transparent 24%),
+    repeating-linear-gradient(4deg, rgba(255, 255, 255, 0.035) 0 2px, transparent 2px 7px),
+    #f4c957;
 }
 
 .stack-cards__item:nth-child(2) .inner {
-  background: #f2fbfb; /* Light cyan sticky note */
-  border-left: 6px solid var(--ink);
+  background:
+    linear-gradient(112deg, rgba(255, 255, 255, 0.22), transparent 24%),
+    repeating-linear-gradient(4deg, rgba(255, 255, 255, 0.035) 0 2px, transparent 2px 7px),
+    #91c653;
 }
 
 .stack-cards__item:nth-child(1) .inner {
-  background: #fff7f7; /* Light warm-pink sticky note */
-  border-left: 6px solid #fe848f;
+  background:
+    linear-gradient(112deg, rgba(255, 255, 255, 0.22), transparent 24%),
+    repeating-linear-gradient(4deg, rgba(255, 255, 255, 0.035) 0 2px, transparent 2px 7px),
+    #e65368;
 }
 
 .stack-cards__item h3 {
@@ -971,10 +1017,10 @@ footer {
 .stack-cards__item .shadow {
   position: absolute;
   inset: 0;
-  border-radius: 18px;
-  background: rgba(var(--ink-rgb), 0.03);
-  filter: blur(8px);
-  transform: translateY(8px) scale(0.96);
+  border-radius: 12px;
+  background: rgba(var(--ink-rgb), 0.22);
+  filter: blur(11px);
+  transform: translate(8px, 15px) scale(0.97);
   z-index: -1;
   pointer-events: none;
 }
@@ -3762,8 +3808,24 @@ footer p {
     width: 64vw;
   }
 
+  .stack-cards::before {
+    top: 12px;
+    left: -28px;
+    width: 58px;
+    height: 70px;
+    border-width: 8px;
+  }
+
   .stack-cards__item .inner {
     padding: 18px 16px;
+  }
+
+  .stack-cards__item .inner::before {
+    top: 13px;
+    left: 13px;
+    width: 15px;
+    height: 15px;
+    border-width: 2px;
   }
 
   .steps {
