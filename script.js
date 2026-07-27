@@ -141,6 +141,24 @@ function updateStackCards() {
   });
 }
 
+document.querySelectorAll(".stack-cards__item .inner").forEach((flashcard) => {
+  const card = flashcard.closest(".stack-cards__item");
+  if (!card) return;
+
+  const toggleFlashcard = () => {
+    if (!card.classList.contains("is-current")) return;
+    const isFlipped = card.classList.toggle("is-flipped");
+    flashcard.setAttribute("aria-pressed", String(isFlipped));
+  };
+
+  flashcard.addEventListener("click", toggleFlashcard);
+  flashcard.addEventListener("keydown", (event) => {
+    if (event.key !== "Enter" && event.key !== " ") return;
+    event.preventDefault();
+    toggleFlashcard();
+  });
+});
+
 document.querySelectorAll(".chattie-avatar").forEach((avatar) => {
   let speechTimer;
 
