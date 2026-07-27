@@ -1369,10 +1369,10 @@ a-rays svg path {
   background:
     linear-gradient(
       180deg,
-      #f4fbfb 0,
+      #d7e4e5 0,
       rgba(var(--cream-rgb), 0.24) 18%,
       rgba(var(--cream-rgb), 0.28) 76%,
-      #d7e4e5 100%
+      #e5f6f5 100%
     );
 }
 
@@ -1486,12 +1486,12 @@ a-rays svg path {
   background:
     linear-gradient(
       180deg,
-      #d7e4e5 0,
+      #f4fbfb 0,
       rgba(var(--orange-rgb), 0.78) 86px,
       var(--orange) 180px,
       var(--orange) calc(100% - 170px),
       rgba(var(--orange-rgb), 0.72) calc(100% - 76px),
-      #e5f6f5 100%
+      #d7e4e5 100%
     );
 }
 
