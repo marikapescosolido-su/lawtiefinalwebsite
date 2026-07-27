@@ -644,6 +644,42 @@ footer {
     linear-gradient(115deg, rgba(var(--sky-rgb), 0.22), rgba(var(--background-rgb), 0.98));
 }
 
+.animation-showcase::before,
+.animation-showcase::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  left: 0;
+  z-index: 0;
+  height: 220px;
+  pointer-events: none;
+}
+
+.animation-showcase::before {
+  top: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(var(--ink-rgb), 0.82),
+    rgba(var(--ink-rgb), 0.34) 42%,
+    transparent 100%
+  );
+}
+
+.animation-showcase::after {
+  bottom: 0;
+  background: linear-gradient(
+    0deg,
+    rgba(var(--cream-rgb), 0.5),
+    rgba(var(--sky-rgb), 0.16) 48%,
+    transparent 100%
+  );
+}
+
+.animation-showcase > * {
+  position: relative;
+  z-index: 1;
+}
+
 .work-copy {
   position: relative;
   overflow: hidden;
@@ -1504,7 +1540,15 @@ a-rays svg path {
   padding: 112px 24px;
   overflow: hidden;
   text-align: center;
-  background: rgba(var(--cream-rgb), 0.35);
+  background:
+    linear-gradient(
+      180deg,
+      rgba(var(--cream-rgb), 0.5),
+      rgba(var(--sky-rgb), 0.14) 34%,
+      rgba(var(--cream-rgb), 0.35) 70%,
+      rgba(var(--ink-rgb), 0.18) 88%,
+      var(--ink) 100%
+    );
 }
 
 .join-ribbon {
