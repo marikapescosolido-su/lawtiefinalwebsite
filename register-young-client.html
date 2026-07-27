@@ -1,0 +1,18 @@
+<!doctype html>
+<html lang="en">
+  <head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><meta name="description" content="Law-Tie registration form for young citizen clients under 25 seeking support alongside their pro-bono lawyer." /><title>Young client registration | Law-Tie</title><link rel="stylesheet" href="styles.css" /></head>
+  <body class="page-register page-register-client">
+    <div class="cursor-bg" aria-hidden="true"><div class="cursor-bg__glow"></div><div class="cursor-bg__focus"></div><div class="cursor-bg__sheet"></div><div class="cursor-bg__ribbons"></div><div class="cursor-bg__engraving"></div><div class="cursor-bg__threads"></div></div>
+    <nav class="nav" id="nav"><a class="brand" href="index.html"><img src="media/law-tie-logo-with-bg.png" alt="Law-Tie logo" /><span>Law<span>-</span>Tie</span></a><a class="button button-small" href="be-part.html">Back</a></nav>
+    <main class="page-main"><section class="form-shell page-section"><div class="form-intro reveal"><span class="eyebrow">Young client · citizen under 25</span><h1>Tell us about your case</h1><p>Please do not include passwords, financial account details, or information unrelated to your request. Law-Tie is not a law firm and this form does not create a lawyer-client relationship.</p></div>
+      <form class="registration-form reveal" action="mailto:lawtie.org@gmail.com?subject=Law-Tie%20young%20citizen%20client%20registration" method="post" enctype="text/plain">
+        <div class="form-grid"><label>Full name<input name="Full name" autocomplete="name" required /></label><label>Date of birth<input type="date" name="Date of birth" required /></label><label>Email<input type="email" name="Email" autocomplete="email" required /></label><label>Country and city<input name="Location" autocomplete="address-level2" required /></label><label>Preferred language<input name="Preferred language" required /></label><label>Pro-bono lawyer’s name<input name="Lawyer name" required /></label><label>Lawyer’s email<input type="email" name="Lawyer email" required /></label><label>Lawyer’s organization or firm<input name="Lawyer organization" /></label></div>
+        <label>What is your case about?<textarea name="Case summary" rows="7" required placeholder="Describe the background, current stage, relevant dates, and main legal issue."></textarea></label>
+        <label>What problems are you currently facing?<textarea name="Current issues" rows="6" required></textarea></label>
+        <label>Why would support from a law student or early-career professional help?<textarea name="Support needed" rows="5" required></textarea></label>
+        <fieldset><legend>Required confirmations</legend><label class="check"><input type="checkbox" name="Lawyer informed" value="Yes" required /><span>I have discussed the Law-Tie program with my pro-bono lawyer.</span></label><label class="check"><input type="checkbox" name="Contact consent" value="Yes" required /><span>I consent to Law-Tie contacting my lawyer about this request.</span></label><label class="check"><input type="checkbox" name="Data consent" value="Yes" required /><span>I consent to Law-Tie reviewing the information provided for registration and matching purposes.</span></label></fieldset>
+        <button class="button" type="submit">Send registration</button><p class="form-note">Submitting opens your email app so you can review the information before sending it to Law-Tie.</p>
+      </form>
+    </section></main><footer><strong>Law<span>Tie</span></strong><p>© 2026 Law-Tie. All rights reserved.</p></footer><script src="script.js"></script>
+  </body>
+</html>

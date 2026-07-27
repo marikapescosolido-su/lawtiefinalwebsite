@@ -3,10 +3,11 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Sign up | Law-Tie</title>
+    <meta name="description" content="Tie in to the Law-Tie newsletter for project news, youth advocacy resources, and opportunities to participate." />
+    <title>Newsletter | Law-Tie</title>
     <link rel="stylesheet" href="styles.css" />
   </head>
-  <body>
+  <body class="page-newsletter">
     <div class="cursor-bg" aria-hidden="true">
       <div class="cursor-bg__glow"></div>
       <div class="cursor-bg__focus"></div>
@@ -23,39 +24,43 @@
       </a>
       <div class="nav-links">
         <a href="index.html#mission">Mission</a>
+        <a href="index.html#how-it-works">How it works</a>
         <a href="team.html">Who are we</a>
-        <a href="how-to-help.html">How to Help</a>
-        <a href="whats-now.html">What we do</a>
+        <a href="be-part.html" target="_blank" rel="noopener">Be part of Law-Tie</a>
+        <a href="contact.html">Contact Us</a>
+        <a href="how-to-help.html">Support Us</a>
       </div>
       <a class="button button-small" href="sign-up.html">Tie In</a>
     </nav>
 
     <main class="page-main">
-      <section class="signup page-section">
+      <section class="newsletter page-section">
+        <div class="background-scribbles" aria-hidden="true"><span>stay curious</span><span>justice needs listeners</span><span>tie in ↗</span></div>
         <div class="section-title reveal">
-          <span class="eyebrow">Sign up</span>
-          <h2>Tie in now</h2>
+          <span class="eyebrow">The Law-Tie newsletter</span>
+          <h1>Tie in</h1>
+          <p class="section-lede">Receive thoughtful updates about Law-Tie, youth advocacy, ChatTIE, new opportunities, and ways to support the community.</p>
         </div>
-        <div class="signup-options">
-          <article class="signup-card reveal">
-            <span>01</span>
-            <h3>Law Students</h3>
-            <p>Share your interests, languages, and country of practice so Law-Tie can match you with meaningful cases.</p>
-            <a class="button" href="mailto:lawtie.org@gmail.com?subject=Law-Tie%20law%20student%20sign%20up">Sign up</a>
-          </article>
-          <article class="signup-card reveal">
-            <span>02</span>
-            <h3>Pro-bono Lawyers</h3>
-            <p>Partner with motivated early-career legal talent while supporting young clients through structured case work.</p>
-            <a class="button" href="mailto:lawtie.org@gmail.com?subject=Law-Tie%20lawyer%20sign%20up">Sign up</a>
-          </article>
-          <article class="signup-card reveal">
-            <span>03</span>
-            <h3>Young Clients</h3>
-            <p>Start the intake process and connect with people who can help you understand each step of your case.</p>
-            <a class="button" href="mailto:lawtie.org@gmail.com?subject=Law-Tie%20client%20sign%20up">Sign up</a>
-          </article>
-        </div>
+        <form class="newsletter-form reveal" action="mailto:lawtie.org@gmail.com?subject=Law-Tie%20newsletter%20signup" method="post" enctype="text/plain">
+          <div class="newsletter-grid">
+            <label>First name<input name="First name" autocomplete="given-name" required /></label>
+            <label>Last name<input name="Last name" autocomplete="family-name" required /></label>
+            <label>Email address<input type="email" name="Email" autocomplete="email" required /></label>
+            <label>Country or region<input name="Country or region" autocomplete="country-name" /></label>
+          </div>
+          <label>I am joining as
+            <select name="Relationship to Law-Tie">
+              <option value="Supporter">Supporter</option>
+              <option value="Young person">Young person</option>
+              <option value="Law student or early-career professional">Law student or early-career professional</option>
+              <option value="Pro-bono lawyer">Pro-bono lawyer</option>
+              <option value="Partner organization">Partner organization</option>
+            </select>
+          </label>
+          <label class="check"><input type="checkbox" name="Newsletter consent" value="Yes" required /><span>I agree to receive Law-Tie news and understand I can unsubscribe at any time.</span></label>
+          <button class="button" type="submit">Join the newsletter</button>
+          <p class="form-note">Submitting opens your email app so you can review the information before sending it to Law-Tie.</p>
+        </form>
       </section>
     </main>
 
