@@ -454,7 +454,7 @@ footer {
   justify-items: center;
   gap: 7px;
   transform: translateX(-50%);
-  color: rgba(var(--ink-rgb), 0.55);
+  color: var(--ink);
   font-size: 10px;
   font-weight: 900;
   letter-spacing: 0.12em;
@@ -978,10 +978,30 @@ footer {
 }
 
 .flashcard-front small {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 18px;
+  border: 2px solid var(--ink);
+  border-radius: 999px;
   color: rgba(var(--ink-rgb), 0.55);
+  background: var(--gold);
+  box-shadow:
+    4px 5px 0 var(--ink),
+    0 10px 24px rgba(var(--orange-rgb), 0.2);
   font-family: "Noteworthy", "Chalkboard SE", "Segoe Print", cursive;
   font-size: clamp(16px, 1.7vw, 21px);
   font-weight: 700;
+  line-height: 1;
+  transform: rotate(-2deg);
+  animation: flashcard-prompt-pulse 2.2s ease-in-out infinite;
+}
+
+.flashcard-front small::before {
+  content: "✦";
+  color: var(--ink);
+  font-family: inherit;
+  font-size: 0.85em;
 }
 
 .flashcard-back {
@@ -3444,6 +3464,17 @@ footer p {
 .signup-card--featured.reveal.visible:hover {
   transform: none;
   box-shadow: none;
+}
+
+@keyframes flashcard-prompt-pulse {
+  0%, 100% {
+    transform: rotate(-2deg) translateY(0) scale(1);
+    box-shadow: 4px 5px 0 var(--ink), 0 10px 24px rgba(var(--orange-rgb), 0.2);
+  }
+  50% {
+    transform: rotate(1deg) translateY(-4px) scale(1.04);
+    box-shadow: 5px 7px 0 var(--ink), 0 15px 30px rgba(var(--orange-rgb), 0.34);
+  }
 }
 
 @keyframes sparkle {
