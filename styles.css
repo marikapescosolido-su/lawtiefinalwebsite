@@ -585,8 +585,8 @@ footer {
 
 .mission-todo-note {
   position: relative;
-  right: 80px;
-  width: min(235%, 1560px);
+  right: 42px;
+  width: min(180%, 1080px);
   max-width: none;
   margin-top: 34px;
   filter: drop-shadow(0 18px 28px rgba(var(--ink-rgb), 0.14));
@@ -742,34 +742,58 @@ footer {
 .work-magic i:nth-child(4) { top: 61%; right: 8%; animation-delay: 2.4s; transform: scale(0.55); }
 .work-magic i:nth-child(5) { top: 79%; left: 22%; animation-delay: 3.2s; transform: scale(0.75); }
 
-.work-intro {
+.mission-robot-callout {
   position: absolute;
-  left: calc(clamp(360px, 34vw, 570px) + 260px);
-  top: calc(clamp(170px, 20vw, 265px) + 340px);
-  z-index: 6;
-  width: min(440px, 42vw);
-  text-align: right;
+  top: calc(clamp(170px, 20vw, 265px) + 320px);
+  right: clamp(210px, 20vw, 360px);
+  left: auto;
+  z-index: 8;
+  width: min(27vw, 340px);
+  pointer-events: none;
 }
 
 #how-it-works {
   scroll-margin-top: 110px;
 }
 
-.work-intro h2 {
-  margin: 0;
-  color: var(--ink);
-  font-size: clamp(44px, 7vw, 86px);
-  line-height: 1;
-  letter-spacing: 0;
+.mission-robot-callout img {
+  width: 100%;
+  max-width: none;
+  filter: drop-shadow(0 24px 30px rgba(var(--ink-rgb), 0.2));
+  animation: mission-robot-float 4.8s ease-in-out infinite;
 }
 
-.work-intro p {
-  margin: 18px 0 0;
-  color: var(--orange);
-  font-size: clamp(16px, 1.7vw, 22px);
-  font-weight: 900;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
+.mission-robot-speech {
+  position: absolute;
+  top: 31%;
+  left: 72%;
+  z-index: 3;
+  width: min(32vw, 420px);
+  animation: speech-bubble-float 4.2s ease-in-out infinite;
+}
+
+.mission-robot-speech img {
+  width: 100%;
+  max-width: none;
+  filter: drop-shadow(0 16px 18px rgba(var(--ink-rgb), 0.16));
+  animation: none;
+}
+
+.mission-robot-speech p {
+  position: absolute;
+  top: 15%;
+  left: 10%;
+  display: grid;
+  place-items: center;
+  width: 80%;
+  height: 48%;
+  margin: 0;
+  color: var(--ink);
+  font-family: "Noteworthy", "Chalkboard SE", "Segoe Print", cursive;
+  font-size: clamp(15px, 1.35vw, 21px);
+  font-weight: 800;
+  line-height: 1.16;
+  text-align: center;
 }
 
 /* Stacking Cards Section */
@@ -786,18 +810,53 @@ footer {
 
 .stack-visuals {
   position: absolute;
-  top: calc(50vh - 210px);
+  top: calc(50vh - 260px);
   left: var(--visual-left);
-  width: min(34vw, 420px);
-  height: 420px;
+  width: min(42vw, 560px);
+  height: 520px;
   transform: translateX(-50%);
   z-index: 4;
   pointer-events: none;
 }
 
+.stack-visuals::before,
+.stack-visuals::after {
+  content: "";
+  position: absolute;
+  pointer-events: none;
+}
+
+.stack-visuals::before {
+  inset: 4% -8%;
+  border-radius: 50%;
+  background:
+    radial-gradient(circle at 50% 54%, rgba(95, 214, 225, 0.34), transparent 43%),
+    radial-gradient(circle at 34% 42%, rgba(255, 187, 58, 0.32), transparent 30%),
+    radial-gradient(circle at 68% 64%, rgba(238, 112, 166, 0.26), transparent 29%);
+  filter: blur(14px);
+  animation: stack-visual-aura 4.8s ease-in-out infinite alternate;
+}
+
+.stack-visuals::after {
+  inset: -2% -5%;
+  z-index: 3;
+  background:
+    radial-gradient(circle at 8% 34%, #f4c66c 0 3px, transparent 4px),
+    radial-gradient(circle at 18% 74%, #54c9d8 0 4px, transparent 5px),
+    radial-gradient(circle at 30% 13%, #ef7fac 0 3px, transparent 4px),
+    radial-gradient(circle at 50% 6%, #f4c66c 0 4px, transparent 5px),
+    radial-gradient(circle at 72% 18%, #62d1de 0 3px, transparent 4px),
+    radial-gradient(circle at 88% 38%, #ef8bac 0 4px, transparent 5px),
+    radial-gradient(circle at 92% 72%, #f4c66c 0 3px, transparent 4px),
+    radial-gradient(circle at 66% 92%, #54c9d8 0 4px, transparent 5px),
+    radial-gradient(circle at 35% 94%, #ef7fac 0 3px, transparent 4px);
+  filter: drop-shadow(0 0 7px rgba(255, 190, 70, 0.72));
+  animation: stack-visual-sparkles 5.2s ease-in-out infinite;
+}
+
 .stack-visuals.is-pinned {
   position: fixed;
-  top: calc(50vh - 210px);
+  top: calc(50vh - 260px);
   left: var(--visual-left);
   transform: translateX(-50%);
   z-index: 19;
@@ -819,13 +878,15 @@ footer {
   object-fit: contain;
   opacity: 0;
   transform: translate(-50%, -50%) scale(0.92);
-  filter: drop-shadow(0 22px 34px rgba(var(--ink-rgb), 0.15));
+  filter:
+    drop-shadow(0 24px 34px rgba(var(--ink-rgb), 0.18))
+    drop-shadow(0 0 18px rgba(82, 207, 220, 0.22));
   transition: opacity 0.55s ease, transform 0.7s cubic-bezier(0.25, 1, 0.5, 1);
 }
 
 .stack-visual.is-current {
   opacity: 1;
-  transform: translate(-50%, -50%) scale(1);
+  transform: translate(-50%, -50%) scale(1.08);
 }
 
 .stack-visual.is-past {
@@ -1739,8 +1800,23 @@ a-rays svg path {
   opacity: 0.3;
 }
 
+.join-robot {
+  position: absolute;
+  bottom: 18px;
+  left: clamp(10px, 2.5vw, 46px);
+  z-index: 2;
+  width: min(27vw, 380px);
+  max-height: 92%;
+  object-fit: contain;
+  object-position: left bottom;
+  filter: drop-shadow(0 24px 28px rgba(var(--ink-rgb), 0.2));
+  animation: join-robot-wave-float 4.6s ease-in-out infinite;
+  pointer-events: none;
+}
+
 .join-copy {
   position: relative;
+  z-index: 3;
   max-width: 700px;
   display: grid;
   justify-items: center;
@@ -2102,7 +2178,7 @@ a-rays svg path {
 }
 
 .signup-card--featured .chattie-feature-copy > span {
-  color: rgba(var(--orange-rgb), 0.72);
+  color: #073f52;
 }
 
 .chattie-feature-copy {
@@ -2143,7 +2219,7 @@ a-rays svg path {
   width: 112%;
   height: 112%;
   max-width: none;
-  margin-top: 0;
+  margin-top: -48px;
   object-fit: contain;
   object-position: center bottom;
   filter: drop-shadow(0 14px 10px rgba(var(--ink-rgb), 0.17));
@@ -3513,6 +3589,55 @@ footer p {
   }
 }
 
+@keyframes stack-visual-aura {
+  from {
+    opacity: 0.58;
+    transform: scale(0.92) rotate(-2deg);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1.08) rotate(2deg);
+  }
+}
+
+@keyframes stack-visual-sparkles {
+  0%, 100% {
+    opacity: 0.48;
+    transform: translateY(5px) rotate(-2deg) scale(0.96);
+  }
+  50% {
+    opacity: 1;
+    transform: translateY(-8px) rotate(2deg) scale(1.04);
+  }
+}
+
+@keyframes mission-robot-float {
+  0%, 100% {
+    transform: translateY(0) rotate(-1deg);
+  }
+  50% {
+    transform: translateY(-10px) rotate(1deg);
+  }
+}
+
+@keyframes speech-bubble-float {
+  0%, 100% {
+    transform: translateY(0) rotate(1deg);
+  }
+  50% {
+    transform: translateY(-7px) rotate(-1deg);
+  }
+}
+
+@keyframes join-robot-wave-float {
+  0%, 100% {
+    transform: translateY(0) rotate(-1deg);
+  }
+  50% {
+    transform: translateY(-11px) rotate(1.5deg);
+  }
+}
+
 @keyframes sparkle {
   0%, 100% { opacity: 0.15; transform: scale(0.75); }
   50% { opacity: 0.8; transform: scale(1.25); }
@@ -3729,6 +3854,11 @@ footer p {
   .work-copy::before,
   .work-copy::after,
   .work-magic i,
+  .stack-visuals::before,
+  .stack-visuals::after,
+  .mission-robot-callout img,
+  .mission-robot-speech,
+  .join-robot,
   .background-scribbles span {
     animation: none;
   }
@@ -3753,11 +3883,12 @@ footer p {
 
   .mission h2 { font-size: max(24px, 6vw); }
   .mission h3 { font-size: max(16px, 2.35vw); }
-  .work-intro {
-    left: 42vw;
-    top: 38vw;
+  .mission-robot-callout {
+    right: clamp(130px, 16vw, 210px);
+    left: auto;
+    top: 43vw;
+    width: min(29vw, 330px);
   }
-  .work-intro h2 { font-size: max(24px, 6vw); }
 
   .stack-cards-container {
     padding-block-start: calc(50vh - max(125px, 14.5vw));
@@ -3765,16 +3896,19 @@ footer p {
     --visual-left: 25vw;
   }
 
-  .stack-visuals,
   .stack-cards,
-  .stack-visuals.is-pinned,
   .stack-cards.is-pinned {
     top: calc(50vh - max(125px, 14.5vw));
   }
 
+  .stack-visuals,
+  .stack-visuals.is-pinned {
+    top: calc(50vh - max(150px, 18vw));
+  }
+
   .stack-visuals {
-    width: 30vw;
-    height: max(250px, 29vw);
+    width: 38vw;
+    height: max(300px, 36vw);
   }
 
   .stack-cards {
@@ -3897,7 +4031,7 @@ footer p {
 
   .mission-todo-note {
     right: 0;
-    width: 180%;
+    width: 130%;
   }
 
   .mission-note--notebook {
@@ -3911,7 +4045,7 @@ footer p {
   }
 
   .stack-visuals {
-    width: 25vw;
+    width: 32vw;
   }
 
   .stack-cards {
@@ -4090,12 +4224,22 @@ footer p {
     width: 165%;
   }
 
-  .work-intro {
+  .mission-robot-callout {
     position: relative;
     inset: auto;
-    width: 170%;
+    width: min(90%, 340px);
     margin-top: clamp(36px, 8vw, 80px);
-    text-align: left;
+  }
+
+  .mission-robot-speech {
+    top: 25%;
+    left: 62%;
+    width: min(46vw, 360px);
+  }
+
+  .join-robot {
+    left: -18px;
+    width: min(32vw, 300px);
   }
 
   .mission-notes {
@@ -4144,13 +4288,30 @@ footer p {
   }
 
   .mission-todo-note,
-  .work-intro {
+  .mission-robot-callout {
     width: 100%;
   }
 
-  .work-intro {
+  .mission-robot-callout {
+    width: min(82%, 320px);
     margin-top: 34px;
-    text-align: center;
+  }
+
+  .mission-robot-speech {
+    top: 23%;
+    left: 34%;
+    width: min(72vw, 320px);
+  }
+
+  .mission-robot-speech p {
+    font-size: clamp(13px, 4vw, 17px);
+  }
+
+  .join-robot {
+    bottom: 8px;
+    left: -34px;
+    width: min(46vw, 220px);
+    opacity: 0.76;
   }
 
   .mission-notes {
