@@ -2621,13 +2621,13 @@ a-rays svg path {
 }
 
 .page-team .team-member-card--bouchra {
-  background:
-    radial-gradient(circle at 50% 28%, rgba(255, 255, 255, 0.94), transparent 34%),
-    linear-gradient(145deg, #b9dfe4 0%, #eef8f4 48%, #f3cf80 100%);
+  aspect-ratio: 1715 / 1911;
+  background: none;
 }
 
 .page-team .team-member-card--bouchra img {
-  object-fit: contain;
+  object-fit: cover;
+  object-position: center;
 }
 
 .page-team .team-member-card--lia img {
