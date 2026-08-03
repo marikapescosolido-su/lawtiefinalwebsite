@@ -2533,10 +2533,42 @@ a-rays svg path {
 }
 
 .page-team .team {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
   color: var(--ink);
   background:
     radial-gradient(circle at 82% 20%, rgba(var(--gold-rgb), 0.25), transparent 30%),
     rgba(var(--cream-rgb), 0.48);
+}
+
+.page-team .team::before {
+  position: absolute;
+  z-index: -1;
+  inset: 0;
+  content: "";
+  pointer-events: none;
+  background:
+    radial-gradient(circle, rgba(var(--gold-rgb), 0.72) 0 2px, transparent 3px) 8% 18% / 145px 145px,
+    radial-gradient(circle, rgba(var(--sky-rgb), 0.66) 0 2px, transparent 3px) 72% 34% / 190px 190px,
+    radial-gradient(circle, rgba(var(--orange-rgb), 0.48) 0 1.5px, transparent 3px) 34% 76% / 170px 170px;
+  opacity: 0.46;
+  animation: team-page-sparkles 12s ease-in-out infinite alternate;
+}
+
+.page-team .team::after {
+  position: absolute;
+  z-index: -1;
+  top: 14%;
+  right: 4%;
+  width: clamp(140px, 22vw, 330px);
+  aspect-ratio: 1;
+  content: "";
+  border-radius: 50%;
+  pointer-events: none;
+  background: radial-gradient(circle, rgba(var(--sky-rgb), 0.22), rgba(var(--gold-rgb), 0.12) 42%, transparent 70%);
+  filter: blur(8px);
+  animation: team-page-orb 8s ease-in-out infinite;
 }
 
 .page-team .team-copy h2 {
@@ -2555,7 +2587,11 @@ a-rays svg path {
 .page-team .founder-card {
   border-color: rgba(var(--ink-rgb), 0.16);
   background: rgba(255, 255, 255, 0.58);
-  box-shadow: 0 22px 60px rgba(var(--ink-rgb), 0.17);
+  box-shadow:
+    0 22px 60px rgba(var(--ink-rgb), 0.17),
+    0 0 0 5px rgba(var(--gold-rgb), 0.1),
+    0 0 34px rgba(var(--sky-rgb), 0.34),
+    0 0 54px rgba(var(--orange-rgb), 0.2);
 }
 
 .page-team .team + .team {
@@ -2584,6 +2620,16 @@ a-rays svg path {
   object-position: center top;
 }
 
+.page-team .team-member-card--bouchra {
+  background:
+    radial-gradient(circle at 50% 28%, rgba(255, 255, 255, 0.94), transparent 34%),
+    linear-gradient(145deg, #b9dfe4 0%, #eef8f4 48%, #f3cf80 100%);
+}
+
+.page-team .team-member-card--bouchra img {
+  object-fit: contain;
+}
+
 .page-team .team-member-card--lia img {
   object-position: center 24%;
 }
@@ -2592,13 +2638,29 @@ a-rays svg path {
   color: var(--ink);
 }
 
+.page-team .team-side-note {
+  max-width: 300px;
+  margin: 30px 0 0 auto;
+  font-size: clamp(18px, 1.8vw, 23px);
+}
+
+.page-team .team-side-note--left {
+  margin-right: auto;
+  margin-left: 0;
+  transform: rotate(2.5deg);
+}
+
 .page-team .founder-card {
   transition: transform 0.4s ease, filter 0.4s ease;
+  animation:
+    subpage-panel-in 0.75s cubic-bezier(0.22, 1, 0.36, 1) both,
+    team-card-magic 4.8s 0.8s ease-in-out infinite;
 }
 
 .page-team .founder-card:hover {
   transform: translateY(-12px) rotate(-1.5deg);
   filter: drop-shadow(0 28px 30px rgba(0, 0, 0, 0.3));
+  animation-play-state: paused;
 }
 
 .page-support .cursor-bg {
@@ -3858,6 +3920,42 @@ footer p {
   to { opacity: 1; }
 }
 
+@keyframes team-card-magic {
+  0%, 100% {
+    filter:
+      drop-shadow(0 0 8px rgba(var(--gold-rgb), 0.28))
+      drop-shadow(0 18px 24px rgba(var(--ink-rgb), 0.12));
+  }
+  50% {
+    filter:
+      drop-shadow(-10px -5px 15px rgba(var(--sky-rgb), 0.42))
+      drop-shadow(12px 8px 18px rgba(var(--orange-rgb), 0.34))
+      drop-shadow(0 24px 30px rgba(var(--ink-rgb), 0.16));
+  }
+}
+
+@keyframes team-page-sparkles {
+  from {
+    opacity: 0.3;
+    transform: translate3d(-10px, 7px, 0) scale(0.98);
+  }
+  to {
+    opacity: 0.58;
+    transform: translate3d(14px, -10px, 0) scale(1.03);
+  }
+}
+
+@keyframes team-page-orb {
+  0%, 100% {
+    opacity: 0.42;
+    transform: translate3d(0, 0, 0) scale(0.92);
+  }
+  50% {
+    opacity: 0.76;
+    transform: translate3d(-34px, 24px, 0) scale(1.12);
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .steps::before,
   .step::after,
@@ -3881,6 +3979,8 @@ footer p {
   .contact-card,
   .registration-form,
   .founder-card,
+  .page-team .team::before,
+  .page-team .team::after,
   .work-copy::before,
   .work-copy::after,
   .work-magic i,
