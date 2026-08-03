@@ -3998,6 +3998,20 @@ footer p {
     grid-template-columns: 1fr;
   }
 
+  .page-team .team--reverse .founder-card,
+  .page-team .team--reverse .team-copy {
+    grid-column: 1;
+  }
+
+  .page-team .team--reverse .founder-card {
+    grid-row: 1;
+  }
+
+  .page-team .team--reverse .team-copy {
+    grid-row: 2;
+    justify-self: start;
+  }
+
   .stats {
     grid-template-columns: repeat(2, 1fr);
   }
