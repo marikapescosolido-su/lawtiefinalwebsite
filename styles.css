@@ -2558,6 +2558,36 @@ a-rays svg path {
   box-shadow: 0 22px 60px rgba(var(--ink-rgb), 0.17);
 }
 
+.page-team .team + .team {
+  margin-top: -2px;
+  padding-top: 72px;
+  border-top: 1px solid rgba(var(--ink-rgb), 0.08);
+}
+
+.page-team .team:nth-of-type(even) {
+  background:
+    radial-gradient(circle at 18% 72%, rgba(var(--sky-rgb), 0.3), transparent 34%),
+    rgba(var(--cream-rgb), 0.6);
+}
+
+.page-team .team--reverse .founder-card {
+  grid-column: 2;
+}
+
+.page-team .team--reverse .team-copy {
+  grid-column: 1;
+  grid-row: 1;
+  justify-self: end;
+}
+
+.page-team .team-member-card img {
+  object-position: center top;
+}
+
+.page-team .team-member-card--lia img {
+  object-position: center 24%;
+}
+
 .page-team .handwritten-note--cream {
   color: var(--ink);
 }
