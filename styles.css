@@ -183,7 +183,7 @@ footer span {
 
 .nav-links {
   gap: clamp(12px, 1.6vw, 22px);
-  font-size: 13px;
+  font-size: 14px;
   font-weight: 700;
   opacity: 0.86;
 }
