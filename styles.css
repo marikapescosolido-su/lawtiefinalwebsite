@@ -1776,7 +1776,8 @@ a-rays svg path {
 .join {
   position: relative;
   display: grid;
-  grid-template-columns: minmax(120px, 1fr) minmax(0, min(700px, 58vw)) minmax(120px, 1fr);
+  grid-template-columns: minmax(0, 700px);
+  justify-content: center;
   align-items: center;
   min-height: 620px;
   margin-top: -2px;
@@ -1803,25 +1804,9 @@ a-rays svg path {
   transform: translate(-50%, -50%);
 }
 
-.join-robot {
-  position: relative;
-  grid-column: 1;
-  grid-row: 1;
-  align-self: end;
-  justify-self: start;
-  z-index: 2;
-  width: min(100%, 380px);
-  max-height: 500px;
-  object-fit: contain;
-  object-position: center bottom;
-  filter: drop-shadow(0 24px 28px rgba(var(--ink-rgb), 0.2));
-  animation: join-robot-wave-float 4.6s ease-in-out infinite;
-  pointer-events: none;
-}
-
 .join-copy {
   position: relative;
-  grid-column: 2;
+  grid-column: 1;
   grid-row: 1;
   justify-self: center;
   z-index: 3;
